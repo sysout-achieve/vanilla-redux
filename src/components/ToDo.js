@@ -1,11 +1,17 @@
 import React from "react";
 import {connect} from "react-redux";
 import {actionCreators} from "../store";
+import {Link} from "react-router-dom";
 
-function ToDo({text, onBtnClick}) {
-    return <li>{text}
-        <button onClick={onBtnClick}>DEL</button>
-    </li>
+function ToDo({text, onBtnClick, id}) {
+    return (
+        <li>
+            <Link to={`/${id}`}>
+                {text}
+            </Link>
+            <button onClick={onBtnClick}>DEL</button>
+        </li>
+    )
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
